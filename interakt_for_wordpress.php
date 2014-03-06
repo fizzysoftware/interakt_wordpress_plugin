@@ -134,16 +134,16 @@ class PS_Interakt{
   add_action('wp_footer', function(){
     $interakt_object = new PS_Interakt();
     $interakt_key = ($interakt_object->options['interakt_app_key']);
-        if (!empty($interakt_key)) {
-       echo "<script>
-      (function() {
-      var interakt = document.createElement('script');
-      interakt.type = 'text/javascript'; interakt.async = true;
-      interakt.src = 'http://localhost:3000/interakt/$interakt_key.js'
-      var scrpt = document.getElementsByTagName('script')[0];
-      scrpt.parentNode.insertBefore(interakt, scrpt);
-      })()
-    </script>";
+    if (!empty($interakt_key)) {
+      echo "<script>
+        (function() {
+        var interakt = document.createElement('script');
+        interakt.type = 'text/javascript'; interakt.async = true;
+        interakt.src = 'http://localhost:3000/interakt/$interakt_key.js'
+        var scrpt = document.getElementsByTagName('script')[0];
+        scrpt.parentNode.insertBefore(interakt, scrpt);
+        })()
+      </script>";
       if ( is_user_logged_in() ) {
         global $current_user;
         get_currentuserinfo();
@@ -158,6 +158,6 @@ class PS_Interakt{
           app_id: '$interakt_key'
           };
         </script>";
-    }
+      }
     }
   });
