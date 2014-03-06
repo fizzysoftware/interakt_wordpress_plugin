@@ -5,7 +5,7 @@ Requires at least: 3.8<br>
 Tested up to: 3.8.1<br>
 
 ####Description
-[Interakt](http://interakt.co) is a customer relationship management (CRM) and messaging tool for web app owners. WordPress is being widely used as a web app nowadays, so Intercom is an ideal companion app to find out more about your users, contact them, get their instant feedback, and track your relationship with them over time so you can spot those who need attention.
+[Interakt](http://interakt.co) is a customer relationship management (CRM) and messaging tool for web app owners. WordPress is being widely used as a web app nowadays, so Interakt is an ideal companion app to find out more about your users, contact them, get their instant feedback, and track your relationship with them over time so you can spot those who need attention.
 
 This plugin generates the Javascript install code to integrate all of this functionality into your WordPress-powered web app.
 
