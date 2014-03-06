@@ -1,4 +1,10 @@
 ##[Interakt-Wordpress-Integration](http://docs.interakt.co)
+Contributors: peeyush singla
+Tags: interakt, interakt.co, crm, , feedback form, support, email, feedback, customer relationship management, users
+Requires at least: 3.8
+Tested up to: 3.8.1
+=== Intercom for WordPress ===
+
 ####[Interakt](http://interakt.co) is built to empower you by adding a management and functional layer over your exisiting app. You can move the data mining and analytical tasks out of the app to a separate platform and your app can perform it's core features.
 
 ####Installation
