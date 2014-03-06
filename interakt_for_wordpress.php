@@ -130,7 +130,7 @@ class PS_Interakt{
 
 
 
-//Calling constructor method in user is in front end.
+//Calling constructor method if user is in front end.
   add_action('wp_footer', function(){
     $my_settings_page = new PS_Interakt();
     $options = ($my_settings_page->options['interakt_app_key']);
