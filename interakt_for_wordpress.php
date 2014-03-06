@@ -1,11 +1,11 @@
 <?php // add the admin options page
 /*
-Plugin Name: Interakt for WordPress
-Plugin URI: http://interakt.co
-Description: Integrate the <a href="http://interakt.co">Interakt</a> CRM and messaging app into your WordPress website.
-Author: Peeyush Singla
-Author URI: https://twitter.com/peeyush_singla
-Version: 0.1
+  Plugin Name: Interakt for WordPress
+  Plugin URI: http://interakt.co
+  Description: Integrate the <a href="http://interakt.co">Interakt</a> CRM and messaging app into your WordPress website.
+  Author: Peeyush Singla
+  Author URI: https://twitter.com/peeyush_singla
+  Version: 0.1
 */
 
 
