@@ -83,7 +83,7 @@ class PS_Interakt{
 
       add_settings_field(
         'interakt_app_key',
-        'Interakt Settings',
+        'Interakt App Id',
         array( $this, 'interakt_app_key_setting' ),
         '__FILE__',
         'interakt_main_section_id'
