@@ -132,13 +132,13 @@ class PS_Interakt{
 
 //Calling constructor method if user is in front end.
   add_action('wp_footer', function(){
-    $my_settings_page = new PS_Interakt();
-    $options = ($my_settings_page->options['interakt_app_key']);
+    $interakt_object = new PS_Interakt();
+    $interakt_key = ($interakt_object->options['interakt_app_key']);
        echo "<script>
       (function() {
       var interakt = document.createElement('script');
       interakt.type = 'text/javascript'; interakt.async = true;
-      interakt.src = 'http://localhost:3000/interakt/$options.js'
+      interakt.src = 'http://localhost:3000/interakt/$interakt_key.js'
       var scrpt = document.getElementsByTagName('script')[0];
       scrpt.parentNode.insertBefore(interakt, scrpt);
       })()
