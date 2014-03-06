@@ -3,9 +3,7 @@ Contributors: peeyush singla<br>
 Tags: interakt, lead-capture, interakt.co, crm, feedback form, support, email, feedback, customer relationship management, users<br>
 Requires at least: 3.8<br>
 Tested up to: 3.8.1<br>
-
 ####[Interakt](http://interakt.co)
-
 ####Installation
 1. Interakt seamlessly integrates with wordpress. wordpress allows you to setup blogs and extend its basic features using plugin and themes. Our plugin allows you to manage customer by providing live support, Chat features to users of your wordpress application.
 2. To integrate your application with Interakt you must have admin access of your application.
