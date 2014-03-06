@@ -134,6 +134,7 @@ class PS_Interakt{
   add_action('wp_footer', function(){
     $interakt_object = new PS_Interakt();
     $interakt_key = ($interakt_object->options['interakt_app_key']);
+        if (!empty($interakt_key)) {
        echo "<script>
       (function() {
       var interakt = document.createElement('script');
@@ -157,5 +158,6 @@ class PS_Interakt{
           app_id: '$interakt_key'
           };
         </script>";
+    }
     }
   });
