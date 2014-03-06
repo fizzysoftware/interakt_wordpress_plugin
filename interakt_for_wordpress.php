@@ -143,4 +143,19 @@ class PS_Interakt{
       scrpt.parentNode.insertBefore(interakt, scrpt);
       })()
     </script>";
+      if ( is_user_logged_in() ) {
+        global $current_user;
+        get_currentuserinfo();
+        $user_name = $current_user->user_login;
+        $email = $current_user->user_email;
+        $created_at = $current_user->user_registered;
+        echo "<script>
+          window.mySettings = {
+          email: '$email',
+          name: '$user_name',
+          created_at: '$created_at',
+          app_id: '$interakt_key'
+          };
+        </script>";
+    }
   });
