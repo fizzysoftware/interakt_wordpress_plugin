@@ -3,7 +3,6 @@ Contributors: peeyush singla<br>
 Tags: interakt, lead-capture, interakt.co, crm, feedback form, support, email, feedback, customer relationship management, users<br>
 Requires at least: 3.8<br>
 Tested up to: 3.8.1<br>
-####[Interakt](http://interakt.co)
 
 ####Description
 [Interakt](http://interakt.co) is a customer relationship management (CRM) and messaging tool for web app owners. WordPress is being widely used as a web app nowadays, so Intercom is an ideal companion app to find out more about your users, contact them, get their instant feedback, and track your relationship with them over time so you can spot those who need attention.
