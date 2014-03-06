@@ -1,4 +1,4 @@
-<?php
+<?php // add the admin options page
 /*
 Plugin Name: Interakt for WordPress
 Plugin URI: http://interakt.co
@@ -22,36 +22,35 @@ class PS_Interakt{
     public function __construct()
     {
         $this->options = get_option( 'interakt_plugin_options_name' );
-        add_action( 'admin_menu', array( $this, 'add_menu_page' ) );
-        add_action( 'admin_init', array( $this, 'register_setting_and_fields' ) );
+        add_action( 'admin_menu', array( $this, 'interakt_plugin_admin_add_page' ) );
+        add_action( 'admin_init', array( $this, 'interakt_plugin_admin_init' ) );
     }
 
     /**
      * Add options page
      */
-    public function add_menu_page()
+    public function interakt_plugin_admin_add_page()
     {
         // This page will be under "Settings"
         add_options_page(
-            'Interakt Options',
-            'Interakt Options',
+            'Interakt Settings',
+            'Interakt Settings',
             'manage_options',
             '__FILE__',
-            array( $this, 'display_options_page' )
+            array( $this, 'interakt_plugin_options_page' )
         );
     }
 
     /**
      * Options page callback
      */
-    public function display_options_page()
+    public function interakt_plugin_options_page()
     {
         // Set class property
         $this->options = get_option( 'interakt_plugin_options_name' );
         ?>
         <div class="wrap">
-            <?php screen_icon(); ?>
-            <h2>My Settings</h2>
+            <h2>Configure Interakt App Id</h2>
             <form method="post" action="options.php">
             <?php
                 // This prints out all hidden setting fields
@@ -67,12 +66,12 @@ class PS_Interakt{
     /**
      * Register and add settings
      */
-    public function register_setting_and_fields()
+    public function interakt_plugin_admin_init()
     {
         register_setting(
             'interakt_plugin_options_group', // Option group
             'interakt_plugin_options_name', // Option name
-            array( $this, 'sanitize' ) // Sanitize
+            array( $this, 'interakt_plugin_options_validate' ) // Sanitize
         );
 
         add_settings_section(
@@ -84,7 +83,7 @@ class PS_Interakt{
 
         add_settings_field(
             'interakt_app_key',
-            'Interakt App Key',
+            'Interakt Settings',
             array( $this, 'interakt_app_key_setting' ),
             '__FILE__',
             'interakt_main_section_id'
@@ -97,7 +96,7 @@ class PS_Interakt{
      * @param array $input Contains all settings fields as array keys
      */
 
-    public function sanitize( $input )
+    public function interakt_plugin_options_validate( $input )
     {
         return $input;
     }
@@ -107,9 +106,8 @@ class PS_Interakt{
      */
     public function interakt_main_section_cb()
     {
-        print 'Enter your settings below:';
-
-}
+        echo '<a href="http://docs.interakt.co">Check Interakt Docs For Help</a>';
+    }
 
     /**
      * Get the settings option array and print one of its values
