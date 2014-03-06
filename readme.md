@@ -1,8 +1,8 @@
 ###[Interakt-Wordpress-Integration](http://docs.interakt.co)
-Contributors: peeyush singla
-Tags: interakt, interakt.co, crm, , feedback form, support, email, feedback, customer relationship management, users
-Requires at least: 3.8
-Tested up to: 3.8.1
+<p>Contributors: peeyush singla</p>
+<p>Tags: interakt, lead-capture, interakt.co, crm, feedback form, support, email, feedback, customer relationship management, users</p>
+<p>Requires at least: 3.8</p>
+<p>Tested up to: 3.8.1</p>
 
 ####[Interakt](http://interakt.co)
 
