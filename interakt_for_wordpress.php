@@ -21,9 +21,9 @@ class PS_Interakt{
      */
     public function __construct()
     {
-        $this->options = get_option( 'interakt_plugin_options_name' );
-        add_action( 'admin_menu', array( $this, 'interakt_plugin_admin_add_page' ) );
-        add_action( 'admin_init', array( $this, 'interakt_plugin_admin_init' ) );
+      $this->options = get_option( 'interakt_plugin_options_name' );
+      add_action( 'admin_menu', array( $this, 'interakt_plugin_admin_add_page' ) );
+      add_action( 'admin_init', array( $this, 'interakt_plugin_admin_init' ) );
     }
 
     /**
@@ -31,14 +31,14 @@ class PS_Interakt{
      */
     public function interakt_plugin_admin_add_page()
     {
-        // This page will be under "Settings"
-        add_options_page(
-            'Interakt Settings',
-            'Interakt Settings',
-            'manage_options',
-            '__FILE__',
-            array( $this, 'interakt_plugin_options_page' )
-        );
+      // This page will be under "Settings"
+      add_options_page(
+        'Interakt Settings',
+        'Interakt Settings',
+        'manage_options',
+        '__FILE__',
+        array( $this, 'interakt_plugin_options_page' )
+      );
     }
 
     /**
@@ -46,21 +46,21 @@ class PS_Interakt{
      */
     public function interakt_plugin_options_page()
     {
-        // Set class property
-        $this->options = get_option( 'interakt_plugin_options_name' );
-        ?>
-        <div class="wrap">
-            <h2>Configure Interakt App Id</h2>
-            <form method="post" action="options.php">
-            <?php
-                // This prints out all hidden setting fields
-                settings_fields( 'interakt_plugin_options_group' );
-                do_settings_sections( '__FILE__' );
-                submit_button();
-            ?>
-            </form>
-        </div>
-        <?php
+      // Set class property
+      $this->options = get_option( 'interakt_plugin_options_name' );
+      ?>
+      <div class="wrap">
+        <h2>Configure Interakt App Id</h2>
+        <form method="post" action="options.php">
+          <?php
+            // This prints out all hidden setting fields
+            settings_fields( 'interakt_plugin_options_group' );
+            do_settings_sections( '__FILE__' );
+            submit_button();
+          ?>
+        </form>
+      </div>
+      <?php
     }
 
     /**
@@ -68,26 +68,26 @@ class PS_Interakt{
      */
     public function interakt_plugin_admin_init()
     {
-        register_setting(
-            'interakt_plugin_options_group', // Option group
-            'interakt_plugin_options_name', // Option name
-            array( $this, 'interakt_plugin_options_validate' ) // Sanitize
-        );
+      register_setting(
+        'interakt_plugin_options_group', // Option group
+        'interakt_plugin_options_name', // Option name
+        array( $this, 'interakt_plugin_options_validate' ) // Sanitize
+      );
 
-        add_settings_section(
-            'interakt_main_section_id', // ID
-            'App Key Setting', // interakt_app_key
-            array( $this, 'interakt_main_section_cb' ), // Callback
-            '__FILE__' // Page
-        );
+      add_settings_section(
+        'interakt_main_section_id', // ID
+        'App Key Setting', // interakt_app_key
+        array( $this, 'interakt_main_section_cb' ), // Callback
+        '__FILE__' // Page
+      );
 
-        add_settings_field(
-            'interakt_app_key',
-            'Interakt Settings',
-            array( $this, 'interakt_app_key_setting' ),
-            '__FILE__',
-            'interakt_main_section_id'
-        );
+      add_settings_field(
+        'interakt_app_key',
+        'Interakt Settings',
+        array( $this, 'interakt_app_key_setting' ),
+        '__FILE__',
+        'interakt_main_section_id'
+      );
     }
 
     /**
@@ -98,7 +98,7 @@ class PS_Interakt{
 
     public function interakt_plugin_options_validate( $input )
     {
-        return $input;
+      return $input;
     }
 
     /**
@@ -106,35 +106,41 @@ class PS_Interakt{
      */
     public function interakt_main_section_cb()
     {
-        echo '<a href="http://docs.interakt.co">Check Interakt Docs For Help</a>';
+      echo '<a href="http://docs.interakt.co">Check Interakt Docs For Help</a>';
     }
+
 
     /**
      * Get the settings option array and print one of its values
      */
     public function interakt_app_key_setting()
     {
-        printf(
-            '<input type="text" id="interakt_app_key" name="interakt_plugin_options_name[interakt_app_key]" size="30" value="%s" />',
-            isset( $this->options['interakt_app_key'] ) ? esc_attr( $this->options['interakt_app_key']) : ''
-        );
+      printf(
+        '<input type="text" id="interakt_app_key" name="interakt_plugin_options_name[interakt_app_key]" size="30" value="%s" />',
+        isset( $this->options['interakt_app_key'] ) ? esc_attr( $this->options['interakt_app_key']) : ''
+      );
     }
+
 }
 
-if( is_admin() )
+
+//Calling constructor method if user is in admin panel
+  if( is_admin() )
     $my_settings_page = new PS_Interakt();
 
 
- add_action('wp_footer', function(){
-  $my_settings_page = new PS_Interakt();
-  $options = ($my_settings_page->options['interakt_app_key']);
-     echo "<script>
-    (function() {
-    var interakt = document.createElement('script');
-    interakt.type = 'text/javascript'; interakt.async = true;
-    interakt.src = 'http://localhost:3000/interakt/$options.js'
-    var scrpt = document.getElementsByTagName('script')[0];
-    scrpt.parentNode.insertBefore(interakt, scrpt);
-    })()
-  </script>";
-} );
+
+//Calling constructor method in user is in front end.
+  add_action('wp_footer', function(){
+    $my_settings_page = new PS_Interakt();
+    $options = ($my_settings_page->options['interakt_app_key']);
+       echo "<script>
+      (function() {
+      var interakt = document.createElement('script');
+      interakt.type = 'text/javascript'; interakt.async = true;
+      interakt.src = 'http://localhost:3000/interakt/$options.js'
+      var scrpt = document.getElementsByTagName('script')[0];
+      scrpt.parentNode.insertBefore(interakt, scrpt);
+      })()
+    </script>";
+  });
